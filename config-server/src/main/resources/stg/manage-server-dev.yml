@@ -1,0 +1,46 @@
+#数据分分页组件配置
+pagehelper:
+  reasonable: true
+  supportMethodsArguments: true
+
+#数据库配置
+druid:
+  type: com.alibaba.druid.pool.DruidDataSource
+  master:
+    url: jdbc:mysql://localhost:3306/SUNDATA
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 179513qwe
+    initialSize: 5
+    minIdle: 1
+    maxActive: 100
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+  slave:
+    url: jdbc:mysql://localhost:3306/SUNDATA
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 179513qwe
+    initialSize: 5
+    minIdle: 1
+    maxActive: 100
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 1 from dual
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+
+

@@ -1,0 +1,27 @@
+#---------------------------------------------------------------------
+spring:
+  profiles:
+    active: stg
+#---------------------------------------------------------------------
+server:
+  port: 9020
+  servlet:
+    context-path: /manage-server
+#---------------------------------------------------------------------
+eureka:
+  instance:
+    prefer-ip-address: true
+    status-page-url-path: ${server.servlet.context-path}/actuator/info #eureka注册中心的url link
+    health-check-url-path: ${server.servlet.context-path}/actuator/health #健康检查的url
+    hostname: localhost
+    status-page-url: http://localhost:${server.port}${server.servlet.context-path}/swagger-ui.html
+#---------------------------------------------------------------------
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*Mapper.xml
+#---------------------------------------------------------------------
+info:
+  version: 1.0.0
+  app:
+    name: ${spring.application.name}
+#---------------------------------------------------------------------

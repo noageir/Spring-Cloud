@@ -1,0 +1,26 @@
+#---------------------------------------------------------------------
+spring:
+  profiles:
+    active: native
+  application:
+    name: config-server
+#---------------------------------------------------------------------
+server:
+  port: 9010
+eureka:
+  instance:
+    prefer-ip-address: true
+    status-page-url-path: /actuator/info #eureka注册中心的url link
+    health-check-url-path: /actuator/health #健康检查的url
+    hostname: localhost
+  client:
+    register-with-eureka: true #是否注册到注册中心
+    fetch-registry: true #是否从注册中心拉取注册服务列表
+    service-url:
+      defaultZone: http://localhost:9000/eureka-server/eureka/
+#---------------------------------------------------------------------
+info:
+  version: 1.0.0
+  app:
+    name: ${spring.application.name}
+#---------------------------------------------------------------------

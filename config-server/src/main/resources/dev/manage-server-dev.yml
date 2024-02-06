@@ -1,0 +1,4 @@
+#数据分分页组件配置
+pagehelper:
+  reasonable: true
+  supportMethodsArguments: true

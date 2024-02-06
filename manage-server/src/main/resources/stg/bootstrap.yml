@@ -1,0 +1,24 @@
+eureka:
+  client:
+    register-with-eureka: true #是否注册到注册中心
+    fetch-registry: true #是否从注册中心拉取注册服务列表
+    service-url:
+      defaultZone: http://localhost:9000/eureka-server/eureka/
+
+spring:
+  application:
+    name: manage-server
+
+  cloud:
+    config:
+      name: manage-server,db-config
+      profile: stg
+      failFast: true
+      discovery:
+        enabled: true
+        serviceId: config-server
+      retry:
+        initial-interval: 1000
+        multiplier: 1.2
+        max-interval: 2000
+        max-attempts: 6
